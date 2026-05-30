@@ -4,6 +4,6 @@ public interface IFazerCalculo {
     void calcularTotal();
 }
 
-public interface interfaces {
+public interface Ipagamento {
     void processandoPagamento();
 }
