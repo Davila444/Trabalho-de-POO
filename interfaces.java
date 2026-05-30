@@ -1,17 +1,4 @@
 
-// INTERFACES DOS USUÁRIOS
-
-public interface IUsuario {
-    void cadastrar();
-    void login();
-    void atualizarDados();
-}
-
-public interface IAdministrador extends IUsuario {
-    void cadastrarProduto();
-    void gerenciarEstoque();
-}
-
 // INTERFACES DO SISTEMA
 
 public interface ILojaOnline {
