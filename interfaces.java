@@ -1,12 +1,6 @@
 
 // INTERFACES DO SISTEMA
 
-public interface ILojaOnline {
-    void cadastrarCliente();
-    void listarProdutos();
-    void criarPedido();
-}
-
 public interface IProduto {
     void atualizarEstoque();
 }
