@@ -1,10 +1,6 @@
 
 // INTERFACES DO SISTEMA
 
-public interface IProduto {
-    void atualizarEstoque();
-}
-
 public interface ICarrinho {
     void adicionarItem();
     void removerItem();
