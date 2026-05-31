@@ -1,8 +1,9 @@
+# Sistema de vendas online 
 
 # descrição_geral
 ### Ele estrutura como a plataforma gerencia o catálogo de produtos, controla os acessos de usuários (divididos entre clientes e administradores) e orquestra o fluxo de compras, desde a seleção de itens em um carrinho até a consolidação de um pedido e seu respectivo pagamento.
 ## regras_de_negocio
-### gestao de perfis: ninguém é apenas usuario, ou você é um gêrente(que manipula o estoque) ou um cliente(quem compra os produtos)
+### gestao de perfis: ninguém é apenas usuario, ou você é um gerente(que manipula o estoque) ou um cliente(quem compra os produtos)
 
 ### controle_carrinho: O cliente possui um carrinho temporario, ele n guarda itens diretamente, mas sim um itemCarrinho, que registra a quantidade do produto antes da compra.
 
@@ -21,20 +22,15 @@
 
 ### Produto: Representa a entidade base dos itens a venda.
 
-### Compras: Carrinho: Objeto temporário que agrupa a intenção de compra do cliente.
+### Carrinho: Objeto temporário que agrupa a intenção de compra do cliente.
 ### ItemCarrinho: Representa a relação entre o carrinho e o produto desejado para a compra atual.
 ### Pedido: O registro efetivado da compra, atrelado ao histórico definitivo do cliente.
 ### ItemPedido: O registro histórico individual de cada linha (item) consolidada no pedido.
 
-### Pagamento: «interface» (Central - Cálculo): Define um contrato lógico para classes que podem ser totalizadas financeiramente.
 ### «interface» IPagamento: Contrato que exige a implementação padronizada do processamento de fundos.
 ### Pagamento: Concretiza os dados e o status da transação gerada pela finalização do pedido.
 
-////////////////////////////////////////
-
-# Sistema de vendas online 
-
-## Explicando como os conceitos de POO serão aplicados no nosso sistema:
+# Explicando como os conceitos de POO serão aplicados no nosso sistema:
 
 ## Encapsulamento: 
 ### Vamos usar o encapsulamento, já que todos os atributos das classes são privados, ou seja, ós vamos precisar de getters e setters para acessá-los.
