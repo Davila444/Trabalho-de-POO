@@ -19,7 +19,8 @@
 
 ### Cliente: O consumidor final.
 
-### Catalogo: Representa a entidade base dos itens a venda.
+### Produto: Representa a entidade base dos itens a venda.
+
 ### Compras: Carrinho: Objeto temporário que agrupa a intenção de compra do cliente.
 ### ItemCarrinho: Representa a relação entre o carrinho e o produto desejado para a compra atual.
 ### Pedido: O registro efetivado da compra, atrelado ao histórico definitivo do cliente.
