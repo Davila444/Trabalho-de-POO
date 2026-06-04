@@ -53,6 +53,7 @@
 ## Código do diagrama feito no mermaid:
 
 ```mermaid
+
 classDiagram
 
     class LojaOnline {
@@ -156,3 +157,4 @@ classDiagram
     Pedido --> "1" Pagamento : possui
 
 ```
+
