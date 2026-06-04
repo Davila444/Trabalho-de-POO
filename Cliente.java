@@ -1,4 +1,4 @@
-public class Cliente {
+class Cliente extends Usuario{
     private String endereço;
 
     public void atualizarDados(){
