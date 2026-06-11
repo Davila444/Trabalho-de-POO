@@ -1,9 +1,9 @@
-
 // INTERFACES DO SISTEMA
+
 public interface IFazerCalculo {
-    void calcularTotal();
+    double calcularTotal();
 }
 
 public interface Ipagamento {
-    void processandoPagamento();
+    void processandoPagamento(double valor);
 }
