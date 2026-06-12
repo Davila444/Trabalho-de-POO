@@ -1,12 +1,28 @@
-class Cliente extends Usuario{
-    private String endereço;
+import java.util.Arraylist;
+import java.util.List;
 
-    public String getEndereço() {
-        return endereço;
+class Cliente extends Usuario{
+    private Carrinho carrinho;
+    private List<Pedido> historicoPedidos;
+
+    public Cliente(String id, String email, String senha, String nome) {
+        super(id, email, senha, nome);
+        this.carrinho = new Carrinho();
+        this.historicoPedidos = new Arraylist<>();
+    }
+    public Carrinho getCarrinho() {
+        return carrinho;
+    }
+    public List<Pedido> getHistoricoPedido() { 
+        return historicoPedidos;
+    }    
+    private String endereco;
+    public String getEndereco() {
+        return endereco;
     }
 
-    public void setEndereço(String endereço) {
-        this.endereço = endereço;
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     } 
 
 
