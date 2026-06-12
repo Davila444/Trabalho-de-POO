@@ -15,7 +15,7 @@ abstract class Usuario {
             return this.email.equals(email) && this.senha.equals(senha);
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
     public void setId(int id) {
@@ -42,17 +42,6 @@ abstract class Usuario {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-
-    public void cadastrar(){
-
-    }
-
-    public void login(){
-
-    }
-
-    public void atualizarDados(){
-
-    }
+ 
 
 }
