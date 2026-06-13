@@ -17,8 +17,8 @@ public interface ICliente {
 }
 
 
-
 // INTERFACES DO SISTEMA
+
 
 public interface ILojaOnline {
     void cadastrarCliente();
@@ -38,10 +38,11 @@ public interface ICarrinho {
 
 public interface IPedido {
     void gerarPedido();
-    void calcularTotal();
+    double calcularTotal();
 }
 
 public interface IPagamento {
-    void processandoPagamento();
+    void processandoPagamento(double valor);
 }
+
 
