@@ -1,3 +1,4 @@
+package model;
 import java.util.Arraylist;
 import java.util.List;
 
