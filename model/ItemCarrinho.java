@@ -1,3 +1,4 @@
+package model;
 public class ItemCarrinho {
     private int quantidade;
 

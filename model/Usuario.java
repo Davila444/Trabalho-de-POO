@@ -1,3 +1,5 @@
+package model;
+
 abstract class Usuario {
     private string id;
     private String nome;

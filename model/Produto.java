@@ -1,3 +1,4 @@
+package model;
 abstract class Produto {
     private int id;
     private String nome;

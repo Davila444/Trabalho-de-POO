@@ -1,5 +1,5 @@
 // INTERFACES DOS USUÁRIOS
-
+package view; 
 public interface IUsuario {
     void cadastrar();
     void login();

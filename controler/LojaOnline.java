@@ -1,3 +1,4 @@
+package controler; 
 public class LojaOnline {
     private String nome;
 

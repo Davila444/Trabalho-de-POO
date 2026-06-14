@@ -1,10 +1,11 @@
-package model;
+
 import java.util.Arraylist;
 import java.util.List;
-
-import Carrinho;
+package model;
+import controler.Carrinho;
 import Pedido;
 import Usuario;
+
 
 class Cliente extends Usuario{
     private Carrinho carrinho;
