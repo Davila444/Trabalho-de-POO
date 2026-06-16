@@ -1,6 +1,8 @@
 package model;
 
-public abstract class Usuario {
+import interfaces.IUsuario;
+
+public abstract class Usuario implements IUsuario {
     private String id;
     private String nome;
     private String email;
@@ -17,7 +19,15 @@ public abstract class Usuario {
             return this.email.equals(email) && this.senha.equals(senha);
     }
     
-    public abstract void atualizarDados();
+    @Override
+    public void cadastrar() {
+        System.out.println("Cadastro realizado com sucesso para: " + this.nome);
+    }
+    
+    @Override
+    public void login() {
+        System.out.println("Iniciando processo de login no sistema...");
+    }
     
     public String getId() {
         return id;
