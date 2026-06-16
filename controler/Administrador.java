@@ -1,5 +1,7 @@
 package controler;
 
+import model.Usuario
+
 public class Administrador extends Usuario{
 
     public Administrador(String id, String email, String senha, String nome) {
