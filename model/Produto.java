@@ -1,5 +1,5 @@
 package model;
-abstract class Produto {
+public abstract class Produto {
     private String id;
     private String nome;
     private double preco;
