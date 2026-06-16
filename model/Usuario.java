@@ -1,12 +1,12 @@
 package model;
 
 abstract class Usuario {
-    private string id;
+    private String id;
     private String nome;
     private String email;
     private String senha;
 
-    public Usuario(string id, string nome, string email, string senha) {
+    public Usuario(String id, String nome, String email, String senha) {
         this.id = id;
         this.nome = nome;
         this.email = email;
@@ -22,7 +22,7 @@ abstract class Usuario {
     public String getId() {
         return id;
     }
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
