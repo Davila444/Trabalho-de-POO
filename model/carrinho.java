@@ -1,26 +1,36 @@
-package
+package model;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class carrinho implements FazerCalculo {
+
     private List<ItemCarrinho> itens;
 
     public Carrinho() {
-        this.itens = new ArrayList<>();
+        this.itens = new ArrayList<>() {
 
-        public Carrinho() {
-            this.itens = new ArrayList();
         }
-        
+    
         public void adicionarItem(ItemCarrinho item) {
             this.itens.add(item);
         }
 
         public void removerItem(ItemCarrinho item) {
-            this.itens.remove(Item);
+            this.itens.remove(item);
         }
         @Override
-        public double
+        public double calcularTotal() {
+            double total = 0.0;
+            
+
+            for (ItemCarrinho item : itens) {
+                total += item.getQuantidade() * item.getProduto().getPreco();
+            }
+            return total;
+        }
+        public List<ItemCarrinho> getItens() {
+            return itens;
+        }
     }
 }
