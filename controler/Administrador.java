@@ -1,6 +1,7 @@
 
 
 package controler;
+
 import model.Usuario;
 import model.Produto;
 
@@ -21,7 +22,7 @@ public class Administrador extends Usuario{
 
     public void gerenciarEstoque(Produto produto, int novaQuantidade){
         produto.atualizarEstoque(novaQuantidade);
-        
+
         System.out.println("O estoque do produto '" + produto.getNome() + "' foi atualizado para: " + novaQuantidade + " unidades.");
         
     }

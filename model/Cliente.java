@@ -1,7 +1,8 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Arraylist;
+
 
 public class Cliente extends Usuario{
 
@@ -12,7 +13,7 @@ public class Cliente extends Usuario{
     public Cliente(String id, String email, String senha, String nome) {
         super(id, email, senha, nome);
         this.carrinho = new Carrinho();
-        this.historicoPedidos = new Arraylist<>();
+        this.historicoPedidos = new ArrayList<Pedido>();
     }
 
 
