@@ -1,15 +1,21 @@
 public class Pagamento {
-    private int id;
+    private String id;
     private String metodo;
     private String status;
 
-    public int getId() {
+    public Pagamento(String id, String metodo, String status) {
+        this.id = id;
+        this.metodo = metodo;
+        this.status = status;
+    }
+
+    public String getId() {
         return id;
     }
 
 
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

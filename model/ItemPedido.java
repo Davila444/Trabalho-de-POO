@@ -1,26 +1,25 @@
 package model;
 public class ItemPedido {
-    private int quantidade;
     private String produto;
-    private int precoUnitario;
-    
-    public int getQuantidade() {
-        return quantidade;
-    }
-    public void setQuantidade(int quantidade) {
+    private int quantidade;
+    private double precoUnitario;
+
+    public ItemPedido(String produto, int quantidade, double precoUnitario) {
+        this.produto = produto;
         this.quantidade = quantidade;
-    }
+        this.precoUnitario = precoUnitario;
+        }   
+
     public String getProduto() {
         return produto;
     }
-    public void setProduto(String produto) {
-        this.produto = produto;
+
+    public int getQuantidade() {
+        return quantidade;
     }
-    public int getPrecoUnitario() {
+
+    public double getPrecoUnitario() {
         return precoUnitario;
-    }
-    public void setPrecoUnitario(int precoUnitario) {
-        this.precoUnitario = precoUnitario;
     }
 
     
