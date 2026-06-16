@@ -5,6 +5,13 @@ abstract class Produto {
     private int preco;
     private int estoque;
 
+    public Produto(int id, String nome, int preco, int estoque) {
+        this.id = id;
+        this.nome = nome;
+        this.preco = preco;
+        this.estoque = estoque;
+    }
+
     public int getId() {
         return id;
     }
