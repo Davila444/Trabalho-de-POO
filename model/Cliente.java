@@ -35,11 +35,11 @@ public class Cliente extends Usuario{
 
     @Override
     public void atualizarDados() {
-        System.out.println('Atualiazando o endereço dp Cliente para: ' + this.endereco)
+        System.out.println("Atualiazando o endereço do Cliente para: ' + this.endereco");
     }
     
     public void cadastrar() {
-        System.out.println("Cliente " + super.getNome() + " cadastrado.")
+        System.out.println("Cliente " + super.getNome() + " cadastrado.");
     }
 
 }
