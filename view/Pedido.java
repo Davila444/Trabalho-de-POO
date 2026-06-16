@@ -1,40 +1,45 @@
 package view;
 
-public class Pedido {
-    private int id;
-    private date data;
-    private String Status;
+import java.time.LocalDate;
 
-    public int getId() {
-        return id;
+public class Pedido implements FazerCalculo {
+
+    private int idPedido;
+    private LocalDate data;
+    private String status;
+
+    public int getIdPedido() {
+        return idPedido;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdPedido(int idPedido) {
+        this.idPedido = idPedido;
     }
 
-    public date getData() {
+    public LocalDate getData() {
         return data;
     }
 
-    public void setData(date data) {
+    public void setData(LocalDate data) {
         this.data = data;
     }
 
     public String getStatus() {
-        return Status;
+        return status;
     }
 
     public void setStatus(String status) {
-        Status = status;
+        this.status = status;
     }
 
-    public void gerarpedido(){
+    public void gerarPedido(){
 
     }
 
-    public void calcularTotal(){
-
+    @Override
+    public double calcularTotal() {
+        double total = 0.0;
+        return total;
     }
     
 }
