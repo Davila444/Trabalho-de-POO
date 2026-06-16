@@ -1,24 +1,24 @@
 package model;
 abstract class Produto {
-    private int id;
+    private String id;
     private String nome;
-    private int preco;
+    private double preco;
     private int estoque;
 
-    public Produto(int id, String nome, int preco, int estoque) {
+    public Produto(String id, String nome, double preco, int estoque) {
         this.id = id;
         this.nome = nome;
         this.preco = preco;
         this.estoque = estoque;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
 
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -36,13 +36,13 @@ abstract class Produto {
 
 
 
-    public int getPreco() {
+    public Double getPreco() {
         return preco;
     }
 
 
 
-    public void setPreco(int preco) {
+    public void setPreco(Double preco) {
         this.preco = preco;
     }
 
@@ -60,8 +60,8 @@ abstract class Produto {
 
 
 
-    public void atualizarEstoque(){
-
+    public void atualizarEstoque(int novaQuantidade){
+        this.estoque = novaQuantidade;
     }
 
 }
