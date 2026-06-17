@@ -14,7 +14,7 @@ public abstract class Usuario {
     }
 
     public boolean Autenticar(String email, String senha) {
-            return this.email.equals(email) && this.senha.equals(senha);
+        return this.email.equals(email) && this.senha.equals(senha);
     }
     
     public abstract void atualizarDados();
