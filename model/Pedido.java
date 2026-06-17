@@ -1,12 +1,29 @@
 package model;
-
 import java.time.LocalDate;
+import java.util.List;
 
 public class Pedido implements FazerCalculo {
 
     private int idPedido;
     private LocalDate data;
     private String status;
+    private Cliente cliente;
+    private List<ItemCarrinho> itens;
+
+
+    public Pedido(int idPedido, LocalDate data, String status) {
+        this.idPedido = idPedido;
+        this.data = data;
+        this.status = status;
+    }
+
+    public Pedido(Cliente cliente, List<ItemCarrinho> itens) {
+        this.cliente = cliente;
+        this.itens = itens;
+        this.data = LocalDate.now();
+        this.status = "Pendente";
+
+    }
 
     public int getIdPedido() {
         return idPedido;

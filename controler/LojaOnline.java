@@ -1,5 +1,7 @@
 package controler;
 import model.Cliente;
+import model.Carrinho;
+import model.Pedido;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -7,6 +9,7 @@ import java.util.Scanner;
 public class LojaOnline {
     private String nome;
     private List<Cliente> clientes = new ArrayList<>();
+    private List<Pedido> pedidos  = new ArrayList<>();
 
     public String getNome() {
         return nome;
@@ -29,15 +32,25 @@ public class LojaOnline {
         Cliente cliente = new Cliente(nome, email, endereco, senha);
         clientes.add(cliente);
         System.out.println("cliente cadrastrado com sucesso");
-        
+
     }
 
     public void listarProdutos(){
 
+
     }
 
-    public void criarPedido(){
+    public void criarPedido(Cliente cliente){
+        Carrinho carrinho = cliente.getCarrinho();
 
+        if (carrinho.getItens().isEmpty()) {
+            System.out.println("Não tem nada no carrinho");
+            return;
+        }
+
+        Pedido pedido = new Pedido(cliente, carrinho.getItens());
+        pedidos.add(pedido);
+        System.out.println("Pedido criado");
     }
 
 }
