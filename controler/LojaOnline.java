@@ -2,6 +2,7 @@ package controler;
 import model.Cliente;
 import model.Carrinho;
 import model.Pedido;
+import model.Produto;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -36,7 +37,10 @@ public class LojaOnline {
     }
 
     public void listarProdutos(){
-
+        //Tenho que lembrar de terminar a lista em adninistrador(por isso o erro).
+        for (Produto p : produtos) {
+            System.out.println(p.getNome() + ": R$" + p.getPreco());
+        }
 
     }
 

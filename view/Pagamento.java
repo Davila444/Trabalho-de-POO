@@ -6,7 +6,7 @@ public class Pagamento {
     public Pagamento(String id, String metodo, String status) {
         this.id = id;
         this.metodo = metodo;
-        this.status = status;
+        this.status = "status";
     }
 
     public String getId() {
@@ -46,7 +46,7 @@ public class Pagamento {
 
 
     public void processandoPagamento(){
-
+        
     }
 
 }

@@ -16,6 +16,7 @@ public class Administrador extends Usuario{
     }
 
     public void cadastrarProduto(Produto produto ){
+        //fazer a lista de produtos aqui, depois que o Moíses terminar de fazer essa parte.
         System.out.println("Sucesso: Produto '" + produto.getNome() + "' cadastrado no sistema");
     }
 
