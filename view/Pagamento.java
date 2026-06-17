@@ -6,7 +6,7 @@ public class Pagamento {
     public Pagamento(String id, String metodo, String status) {
         this.id = id;
         this.metodo = metodo;
-        this.status = "status";
+        this.status = "Pendente";
     }
 
     public String getId() {
@@ -44,9 +44,13 @@ public class Pagamento {
     }
 
 
-
     public void processandoPagamento(){
-        
+        System.out.println("Aguarde o Processamento");
+        System.out.println("Método: " +this.metodo);
+        this.status = "Aprovado";
+        System.out.println("Status: " + this.status);
+        System.out.println("O pagamento foi Realizado");
+
     }
 
 }
