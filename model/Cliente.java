@@ -25,7 +25,7 @@ public class Cliente extends Usuario implements ICliente {
     
     @Override
     public void exibirHistorico() {
-        System.out.println("Historico de compras de " + super.getNome() ".")
+        System.out.println("Historico de compras de " + super.getNome() + "." );
 
         if (historicoPedidos.isEmpty()) {
             System.out.println("Nenhum pedido realizado ainda.");
@@ -44,4 +44,19 @@ public class Cliente extends Usuario implements ICliente {
         System.out.println("Cliente " + super.getNome() + " cadastrado.");
     }
 
+public Carrinho getCarrinho() {
+        return carrinho;
+    }
+
+    public List<Pedido> getHistoricoPedidos() {
+        return historicoPedidos;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
 }
