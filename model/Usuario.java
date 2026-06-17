@@ -28,7 +28,7 @@ public abstract class Usuario implements IUsuario {
     public void login() {
         System.out.println("Iniciando processo de login no sistema...");
     }
-    
+
     public String getId() {
         return id;
     }

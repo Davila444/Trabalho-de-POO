@@ -3,7 +3,7 @@ package interfaces;
 import model.Pedido;
 
 public interface ICliente extends IUsuario{
-    void atualizarDados(Pedido pedido);
-    void cadastrar();
+    void adicionarPedido(Pedido pedido);
+    void exibirHistorico();
 }
 
