@@ -50,7 +50,14 @@ public class Pedido implements FazerCalculo {
     }
 
     public void gerarPedido(){
-
+        this.status = "confirmado";
+        System.out.println("Pedido gerado");
+        System.out.println("Data: "+ this.data);
+        System.out.println("Status: "+ this.status);
+        System.out.println("itens: ");
+        for (ItemCarrinho item : itens) {
+            System.out.println("- " + item.getProduto().getNome());
+        }
     }
 
     @Override
