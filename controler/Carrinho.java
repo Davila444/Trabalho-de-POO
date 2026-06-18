@@ -1,9 +1,12 @@
-package model;
+package controler;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Carrinho implements FazerCalculo {
+import interfaces.IFazerCalculo;
+import model.ItemCarrinho;
+
+public class Carrinho implements IFazerCalculo {
 
     private List<ItemCarrinho> itens;
 

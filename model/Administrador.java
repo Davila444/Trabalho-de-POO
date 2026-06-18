@@ -1,8 +1,5 @@
 
-package controler;
-
-import model.Usuario;
-import model.Produto;
+package model;
 
 public class Administrador extends Usuario{
 

@@ -2,7 +2,9 @@ package model;
 import java.time.LocalDate;
 import java.util.List;
 
-public class Pedido implements FazerCalculo {
+import interfaces.IFazerCalculo;
+
+public class Pedido implements IFazerCalculo {
 
     private int idPedido;
     private LocalDate data;

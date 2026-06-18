@@ -1,6 +1,5 @@
 package controler;
 import model.Cliente;
-import model.Carrinho;
 import model.Pedido;
 import model.Produto;
 import java.util.ArrayList;

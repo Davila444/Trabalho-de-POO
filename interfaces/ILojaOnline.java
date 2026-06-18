@@ -1,6 +1,6 @@
 package interfaces;
 
-import model.Carrinho;
+import controler.Carrinho;
 import model.Cliente;
 
 public interface ILojaOnline {
