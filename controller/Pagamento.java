@@ -1,4 +1,4 @@
-package controler;
+package controller;
 public class Pagamento {
     private String id;
     private String metodo;

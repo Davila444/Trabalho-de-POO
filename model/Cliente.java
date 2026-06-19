@@ -3,7 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
-import controler.Carrinho;
+import controller.Carrinho;
 
 
 public class Cliente extends Usuario{
