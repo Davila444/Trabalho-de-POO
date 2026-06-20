@@ -27,7 +27,7 @@ public class Carrinho implements IFazerCalculo {
             for (ItemCarrinho item : itens) {
                 total += item.getQuantidade() * item.getProduto().getPreco();
         }
-
+        
             return total;
         }
         public List<ItemCarrinho> getItens() {

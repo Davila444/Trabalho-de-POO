@@ -10,6 +10,7 @@ public class LojaOnline {
     private String nome;
     private List<Cliente> clientes = new ArrayList<>();
     private List<Pedido> pedidos  = new ArrayList<>();
+    private List<Produto> produtos = new ArrayList<>();
 
     public String getNome() {
         return nome;
