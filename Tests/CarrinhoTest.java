@@ -7,7 +7,7 @@ import controller.Carrinho;
 import model.ItemCarrinho;
 import model.Produto; 
 
-class carrinhoTest{
+class CarrinhoTest{
 
     class ProdutoTeste extends Produto {
         public ProdutoTeste(String id, String nome, double preco, int estoque) {

@@ -65,6 +65,9 @@ public class Pedido implements IFazerCalculo {
     @Override
     public double calcularTotal() {
         double total = 0.0;
+        for (ItemCarrinho item : itens) {
+            total += item.getQuantidade() * item.getProduto().getPreco();
+        }
         return total;
     }
     
