@@ -1,5 +1,6 @@
 package model;
 
+import excessoes.LoginInvalidoException;
 import interfaces.IUsuario;
 
 public abstract class Usuario implements IUsuario {
@@ -16,7 +17,11 @@ public abstract class Usuario implements IUsuario {
     }
 
     public boolean Autenticar(String email, String senha) {
-        return this.email.equals(email) && this.senha.equals(senha);
+        if (!this.email.equals(email) || !this.senha.equals(senha)) {
+            throw new LoginInvalidoException("Acesso negado: senha ou email incorretos.;");
+        } 
+        System.out.println("Login efetuado com sucesso");
+        return true;
     }
     
     @Override
@@ -57,5 +62,4 @@ public abstract class Usuario implements IUsuario {
         this.senha = senha;
     }
  
-
 }
