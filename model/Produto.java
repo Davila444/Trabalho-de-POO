@@ -1,4 +1,6 @@
 package model;
+import excessoes.;
+
 public abstract class Produto {
     private String id;
     private String nome;
@@ -11,6 +13,32 @@ public abstract class Produto {
         this.preco = preco;
         this.estoque = estoque;
     }
+
+    public void removerDoEstoque(int quantidadeComprada) {
+        if (quantidadeComprada <= 0) {
+            throw new QuantidadeInvalidaException("")
+        }
+        
+        
+        this.estoque = this.estoque - quantidadeComprada;
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public String getId() {
         return id;
@@ -36,13 +64,13 @@ public abstract class Produto {
 
 
 
-    public Double getPreco() {
+    public double getPreco() {
         return preco;
     }
 
 
 
-    public void setPreco(Double preco) {
+    public void setPreco(double preco) {
         this.preco = preco;
     }
 
