@@ -61,5 +61,5 @@ public abstract class Usuario implements IUsuario {
     public void setSenha(String senha) {
         this.senha = senha;
     }
- 
+    
 }
