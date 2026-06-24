@@ -3,7 +3,9 @@ import java.time.LocalDate;
 import java.util.List;
 
 import interfaces.IFazerCalculo;
-
+/**
+ * A classe que contém os produtos que foram selecionados do carrinho de cliente para a compra.
+ */
 public class Pedido implements IFazerCalculo {
 
     private int idPedido;
@@ -50,7 +52,10 @@ public class Pedido implements IFazerCalculo {
     public void setStatus(String status) {
         this.status = status;
     }
-
+    /**
+     * O método confirma que o pedido foi realmente gerado e a compra pode ser realizada.
+     * 
+     */
     public void gerarPedido(){
         this.status = "confirmado";
         System.out.println("Pedido gerado");
@@ -63,6 +68,11 @@ public class Pedido implements IFazerCalculo {
     }
 
     @Override
+    /**
+     * O método que calcula o valor da compra feita.
+     * 
+     * @return total
+     */
     public double calcularTotal() {
         double total = 0.0;
         for (ItemCarrinho item : itens) {

@@ -1,4 +1,7 @@
 package model;
+/**
+ * A classe que representa os itens que foram confirmados do carrindo para o pedido e finalização da compra.
+ */
 public class ItemPedido {
     private String produto;
     private int quantidade;
