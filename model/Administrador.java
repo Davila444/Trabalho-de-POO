@@ -2,7 +2,7 @@
 package model;
 import excessoes.EstoqueInvalidoException;
 import interfaces.IAdministrador;
-
+ 
 public class Administrador extends Usuario implements IAdministrador{
 
     public Administrador(String id, String nome, String email, String senha) {
