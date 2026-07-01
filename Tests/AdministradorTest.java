@@ -19,7 +19,7 @@ class AdministradorTest {
 
     @BeforeEach
     void setup() {
-        admin = new Administrador("1", "Admin", "admin@email.com", "123");
+        admin = new Administrador("Admin", "admin@email.com", "123", "Rua A");
         produto = new ProdutoTeste("1", "Notebook", 2500, 10);
     }
 
