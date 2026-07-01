@@ -1,9 +1,6 @@
-// feito por IA...
-
 package view;
 
-
-import controller.*;
+import controller.LojaOnline;
 import model.*;
 import excessoes.*;
 
@@ -15,16 +12,17 @@ public class SistemaView {
     private Scanner scanner;
     private Administrador admin;
 
-    // Construtor: Prepara o sistema quando ele é iniciado
     public SistemaView() {
         this.scanner = new Scanner(System.in);
         this.loja = new LojaOnline();
         this.loja.setNome("Super Loja Tech");
-        // Criando um Administrador padrão para você testar
+        // Administrador padrão para testes
         this.admin = new Administrador("A1", "Admin Mestre", "admin@loja.com", "admin123");
     }
 
-    // Aquele loop gigante principal agora é este método!
+    // ==============================================================
+    //                       MENU PRINCIPAL
+    // ==============================================================
     public void iniciarSistema() {
         int opcaoPrincipal = 0;
 
@@ -37,17 +35,24 @@ public class SistemaView {
             System.out.println("1. Login Cliente");
             System.out.println("2. Cadastro Cliente");
             System.out.println("3. Sair do Sistema");
-            System.out.println("4. Acesso Administrador (Simulação)");
+            System.out.println("4. Acesso Administrador");
             System.out.print("Escolha uma opção: ");
 
-            opcaoPrincipal = Integer.parseInt(scanner.nextLine());
+            try {
+                opcaoPrincipal = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("⚠️ Por favor, digite apenas números.");
+                continue;
+            }
 
             switch (opcaoPrincipal) {
                 case 1:
+                    System.out.println("\n--- LOGIN ---");
                     System.out.print("Email: ");
-                    String email = scanner.nextLine();
+                    // O .trim() remove espaços digitados sem querer
+                    String email = scanner.nextLine().trim(); 
                     System.out.print("Senha: ");
-                    String senha = scanner.nextLine();
+                    String senha = scanner.nextLine().trim();
 
                     Cliente clienteLogado = null;
                     for (Cliente c : loja.getClientes()) { 
@@ -56,10 +61,13 @@ public class SistemaView {
                                 clienteLogado = c;
                                 break;
                             }
-                        } catch (LoginInvalidoException e) {}
+                        } catch (LoginInvalidoException e) {
+                            // Continua procurando na lista
+                        }
                     }
 
                     if (clienteLogado != null) {
+                        System.out.println("✅ Login realizado com sucesso!");
                         clienteLogado.login();
                         menuCliente(clienteLogado);
                     } else {
@@ -103,7 +111,13 @@ public class SistemaView {
             System.out.println("5. Exibir meu histórico de compras");
             System.out.println("6. Deslogar");
             System.out.print("Escolha: ");
-            opcao = Integer.parseInt(scanner.nextLine());
+            
+            try {
+                opcao = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("⚠️ Por favor, digite apenas números.");
+                continue;
+            }
 
             switch (opcao) {
                 case 1:
@@ -111,7 +125,7 @@ public class SistemaView {
                     break;
                 case 2:
                     System.out.print("Nome exato do produto: ");
-                    String nomeBusca = scanner.nextLine();
+                    String nomeBusca = scanner.nextLine().trim();
                     System.out.print("Quantidade: ");
                     int qtd = Integer.parseInt(scanner.nextLine());
 
@@ -124,8 +138,8 @@ public class SistemaView {
                     }
                     break;
                 case 3:
-                    System.out.println("--- SEU CARRINHO ---");
-                    if (cliente.getCarrinho().getItens().isEmpty()) {
+                    System.out.println("\n--- SEU CARRINHO ---");
+                    if (cliente.getCarrinho() == null || cliente.getCarrinho().getItens().isEmpty()) {
                         System.out.println("O carrinho está vazio.");
                     } else {
                         for (ItemCarrinho item : cliente.getCarrinho().getItens()) {
@@ -135,7 +149,7 @@ public class SistemaView {
                     }
                     break;
                 case 4:
-                    if (cliente.getCarrinho().getItens().isEmpty()) {
+                    if (cliente.getCarrinho() == null || cliente.getCarrinho().getItens().isEmpty()) {
                         System.out.println("❌ Não é possível finalizar um pedido com o carrinho vazio.");
                     } else {
                         loja.criarPedido(cliente);
@@ -161,19 +175,27 @@ public class SistemaView {
     // ==============================================================
     private void menuAdministrador() {
         int opcao = 0;
-        while (opcao != 4) {
+        
+        while (opcao != 5) {
             System.out.println("\n--- PAINEL DO ADMINISTRADOR ---");
             System.out.println("1. Cadastrar Produto");
             System.out.println("2. Listar Produtos");
             System.out.println("3. Remover Produto");
-            System.out.println("4. Deslogar");
+            System.out.println("4. Ver Relatório de Clientes");
+            System.out.println("5. Deslogar");
             System.out.print("Escolha: ");
-            opcao = Integer.parseInt(scanner.nextLine());
+            
+            try {
+                opcao = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("⚠️ Por favor, digite apenas números.");
+                continue;
+            }
 
             switch (opcao) {
                 case 1:
                     System.out.print("Nome do produto: ");
-                    String nome = scanner.nextLine();
+                    String nome = scanner.nextLine().trim();
                     System.out.print("Preço (ex: 150.50): ");
                     double preco = Double.parseDouble(scanner.nextLine().replace(",", "."));
                     System.out.print("Estoque inicial: ");
@@ -184,7 +206,7 @@ public class SistemaView {
                     admin.cadastrarProduto(novoProduto);
                     break;
                 case 2:
-                    System.out.println("--- ESTOQUE ATUAL ---");
+                    System.out.println("\n--- ESTOQUE ATUAL ---");
                     if (loja.getProdutos().isEmpty()) {
                         System.out.println("Nenhum produto cadastrado no catálogo.");
                     } else {
@@ -193,7 +215,7 @@ public class SistemaView {
                     break;
                 case 3:
                     System.out.print("Nome do produto a remover: ");
-                    String nomeRemover = scanner.nextLine();
+                    String nomeRemover = scanner.nextLine().trim();
                     try {
                         Produto p = loja.buscarProduto(nomeRemover);
                         loja.getProdutos().remove(p);
@@ -203,6 +225,19 @@ public class SistemaView {
                     }
                     break;
                 case 4:
+                    int totalClientes = loja.getClientes().size();
+                    System.out.println("\n📊 RELATÓRIO DE CLIENTES");
+                    if (totalClientes == 0) {
+                        System.out.println("Ainda não há clientes cadastrados na loja.");
+                    } else {
+                        System.out.println("Total de clientes: " + totalClientes);
+                        System.out.println("--- LISTA ---");
+                        for (Cliente c : loja.getClientes()) {
+                            System.out.println("- Nome: " + c.getNome() + " | Email: " + c.getEmail());
+                        }
+                    }
+                    break;
+                case 5:
                     System.out.println("Saindo do painel administrativo...");
                     break;
                 default:
@@ -212,11 +247,9 @@ public class SistemaView {
     }
 }
 
-// Classe concreta auxiliar apenas para o administrador conseguir cadastrar os produtos
+// Classe concreta auxiliar para instanciar produtos
 class ProdutoFisico extends Produto {
     public ProdutoFisico(String id, String nome, double preco, int estoque) {
         super(id, nome, preco, estoque);
     }
 }
-
-

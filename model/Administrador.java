@@ -11,9 +11,15 @@ import interfaces.IAdministrador;
      */
 
 public class Administrador extends Usuario implements IAdministrador{
+<<<<<<< HEAD
+
+    public Administrador(String nome, String email, String senha, String endereco) {
+        super(nome, email, senha, endereco);
+=======
     
     public Administrador(String id, String nome, String email, String senha) {
         super(id, nome, email, senha);
+>>>>>>> dcc1d98bde7de4752b9e8b6238e0de67183eaf90
     }
 
     @Override

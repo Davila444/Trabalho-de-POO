@@ -32,17 +32,22 @@ public class LojaOnline implements ILojaOnline{
      */
     public void cadastrarCliente(Scanner scanner){
         System.out.print("Nome: ");
-        String nome = scanner.nextLine();
-        System.out.print("Email: ");
-        String email = scanner.nextLine();
-        System.out.print("Senha: ");
-        String senha = scanner.nextLine();
-        System.out.print("Endereco: ");
-        String endereco = scanner.nextLine();
+        String nome = scanner.nextLine().trim();
 
-        Cliente cliente = new Cliente(nome, email, endereco, senha);
-        clientes.add(cliente);
-        System.out.println("cliente cadrastrado com sucesso");
+        System.out.print("Email: ");
+        String email = scanner.nextLine().trim();
+
+        System.out.print("Senha: ");
+        String senha = scanner.nextLine().trim();
+
+        System.out.print("Endereco: ");
+        String endereco = scanner.nextLine().trim();
+
+        Cliente novoCliente = new Cliente(nome, email, senha, endereco);
+        this.clientes.add(novoCliente);
+        System.out.println("cliente cadastrado com sucesso");
+        System.out.println("DEBUG -> Email salvo no sistema: [" + novoCliente.getEmail() + "]");
+        System.out.println("DEBUG -> Senha salva no sistema: [" + novoCliente.getSenha() + "]");
 
     }
     /**
