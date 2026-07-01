@@ -55,7 +55,7 @@
 ```mermaid
 
 classDiagram
-%% ==========================================
+    %% ==========================================
     %%                 INTERFACES
     %% ==========================================
     class ILojaOnline {
@@ -130,26 +130,137 @@ classDiagram
         +atualizarEstoque(int novaQuantidade)
     }
     
+    %% ==========================================
+    %%             CLASSES CONCRETAS
+    %% ==========================================
+    class LojaOnline {
+        -List~Cliente~ clientes
+        -List~Pedido~ pedidos
+        -List~Produto~ produtos
+        -String nome
+        +cadastrarCliente(Scanner scanner)
+        +listarProdutos()
+        +buscarProduto(String nome) Produto
+        +criarPedido(Cliente cliente)
+    }
 
-    %%implementações
-    iFazerCalculo <|.. Carrinho:implements
-    iFazerCalculo <|.. Pedido:implements
-    iPagamento <|.. Pagamento:implements
+    class Cliente {
+        -Carrinho carrinho
+        -List~Pedido~ historicoPedidos
+        -String endereco
+        +adicionarPedido(Pedido pedido)
+        +exibirHistorico()
+        +atualizarDados()
+        +cadastrar()
+        +login()
+    }
 
-    %%herança
-    Usuario <|-- Cliente : herda
-    Usuario <|-- Administrador : herda
+    class Administrador {
+        +atualizarDados()
+        +cadastrarProduto(Produto produto)
+        +gerenciarEstoque(Produto produto, int novaQuantidade)
+        +cadastrar()
+        +login()
+    }
 
-    %%Multiplicidade
-    LojaOnline --> "*" Usuario : gerencia
+    class Carrinho {
+        -List~ItemCarrinho~ itens
+        +adicionarItem(ItemCarrinho item)
+        +removerItem(ItemCarrinho item)
+        +calcularTotal() double
+        +getItens() List~ItemCarrinho~
+    }
+
+    class ItemCarrinho {
+        -Produto produto
+        -int quantidade
+    }
+
+    class Pedido {
+        -int idPedido
+        -LocalDate data
+        -String status 
+        -Cliente cliente
+        -List~ItemCarrinho~ itens
+        +gerarPedido()
+        +calcularTotal() double
+    }
+
+    class ItemPedido {
+        -String produto
+        -int quantidade
+        -double precoUnitario
+    }
+
+    class Pagamento {
+        -String id
+        -String metodo
+        -String status
+        +processarPagamento()
+    }
+
+    %% ==========================================
+    %%                 EXCEPTIONS
+    %% ==========================================
+    class ProdutoNaoEncontradoException {
+        <<Exception>>
+        +String mensagem
+    }
+
+    class LoginInvalidoException {
+        <<Exception>>
+        +String mensagem
+    }
+
+    class EstoqueInvalidoException {
+        <<Exception>>
+        +String mensagem
+    }
+
+    class QuantidadeInvalidaException {
+        <<Exception>>
+        +String mensagem
+    }
+
+    %% ==========================================
+    %%     IMPLEMENTAÇÕES (Assinando Contratos)
+    %% ==========================================
+    ILojaOnline <|.. LojaOnline : implements
+    IFazerCalculo <|.. Carrinho : implements
+    IFazerCalculo <|.. Pedido : implements
+    IPagamento <|.. Pagamento : implements
+    IUsuario <|.. Usuario : implements
+    ICliente <|.. Cliente : implements
+    IAdministrador <|.. Administrador : implements
+    IProduto <|.. Produto : implements
+    ICarrinho <|.. Carrinho : implements
+
+    %% ==========================================
+    %%                  HERANÇA
+    %% ==========================================
+    IUsuario <|-- IAdministrador : extends
+    Usuario <|-- Cliente : extends
+    Usuario <|-- Administrador : extends
+
+    %% ==========================================
+    %%                ASSOCIAÇÕES
+    %% ==========================================
+    LojaOnline --> "*" Cliente : possui
+    LojaOnline --> "*" Pedido : gerencia
     LojaOnline --> "*" Produto : cataloga
     Cliente --> "1" Carrinho : possui
     Cliente --> "*" Pedido : realiza
+    Pedido --> "1" Cliente : pertence
     Carrinho --> "*" ItemCarrinho : contem
     ItemCarrinho --> "1" Produto : referencia
-    Pedido --> "*" Itempedido : contem
-    Itempedido --> "1" Produto : referencia 
+    Pedido --> "*" ItemCarrinho : contem
     Pedido --> "1" Pagamento : possui
 
-```
+    %% ==========================================
+    %%     LANÇAMENTO DE EXCEÇÕES (THROWS)
+    %% ==========================================
+    Usuario ..> LoginInvalidoException : throws
+    LojaOnline ..> ProdutoNaoEncontradoException : throws
+    Administrador ..> EstoqueInvalidoException : throws
+    Produto ..> QuantidadeInvalidaException : throws
 
