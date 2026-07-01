@@ -1,10 +1,11 @@
 package model;
 import excessoes.QuantidadeInvalidaException;
+import interfaces.IProduto;
 
 /**
  * A classe abstrata que representa o produto em si, que será comprado pelo cliente.
  */
-public abstract class Produto {
+public abstract class Produto implements IProduto {
     private String id;
     private String nome;
     private double preco;
@@ -21,6 +22,7 @@ public abstract class Produto {
      *@param quantidadeComprada quantidadeComprada para retirar essa quantidade do estoque, se tiver essa quantidade.
      *@throws QuantidadeInvalidaException caso o a quantidade pedida seja menor que 1 ou maior do que há disponível no estoque.
      */
+    @Override
     public void removerDoEstoque(int quantidadeComprada) {
         if (quantidadeComprada <= 0) {
             throw new QuantidadeInvalidaException("ERRO: A quantidade deve ser pelomenos 1");
