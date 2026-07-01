@@ -1,12 +1,14 @@
 package interfaces;
 
-import controller.Carrinho;
+
 import model.Cliente;
+import model.Produto;
+import java.util.Scanner;
 
 public interface ILojaOnline {
-    void cadastrarCliente(Cliente cliente);
-    void listarProdutos();
-    void criarPedido(Carrinho carrinho, Cliente cliente);
+    void cadastrarCliente(Scanner scanner);
+    Produto buscarProduto(String nome);
+    void criarPedido(Cliente cliente);
 }
 
 

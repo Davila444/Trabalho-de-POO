@@ -6,10 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import excessoes.ProdutoNaoEncotradoException;
+import interfaces.ILojaOnline;
+
 /**
  * É a classe principal do sistema que gerencia produtos, clientes e pedidos.
  */
-public class LojaOnline {
+public class LojaOnline implements ILojaOnline{
     private String nome;
     private List<Cliente> clientes = new ArrayList<>();
     private List<Pedido> pedidos  = new ArrayList<>();
@@ -68,6 +71,15 @@ public class LojaOnline {
         Pedido pedido = new Pedido(cliente, carrinho.getItens());
         pedidos.add(pedido);
         System.out.println("Pedido criado");
+    }
+    @Override
+    public Produto buscarProduto(String nome) {
+        for (Produto p : produtos) {
+            if (p.getNome().equalsIgnoreCase(nome)) {
+                return p;
+            }
+        }
+        throw new ProdutoNaoEncotradoException("Erro: O produto não foi encontrado");
     }
 
 }
