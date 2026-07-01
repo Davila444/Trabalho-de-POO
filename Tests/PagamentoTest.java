@@ -16,7 +16,7 @@ import controller.Pagamento;
 
     @Test
     void testprocessarPagamento(){
-        pagamento.processandoPagamento();
+        pagamento.processarPagamento();
         assertEquals("Aprovado", pagamento.getStatus());
     }
 
