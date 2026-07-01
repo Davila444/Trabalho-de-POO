@@ -21,5 +21,29 @@ class ProdutoTest {
         produto = new ProdutoTeste("1", "Notebook", 2500, 10);
     }
 
-    
+    @Test
+    void testRemoverDoEstoqueValido() {
+        produto.removerDoEstoque(3);
+        assertEquals(7, produto.getEstoque());
+    }
+
+    @Test
+    void testRemoverDoEstoqueZero() {
+        assertThrows(QuantidadeInvalidaException.class, () -> {
+            produto.removerDoEstoque(0);
+        });
+    }
+
+    @Test
+    void testRemoverDoEstoqueInsuficiente() {
+        assertThrows(QuantidadeInvalidaException.class, () -> {
+            produto.removerDoEstoque(20);
+        });
+    }
+
+    @Test
+    void testAtualizarEstoque() {
+        produto.atualizarEstoque(50);
+        assertEquals(50, produto.getEstoque());
+    }
 }
