@@ -24,15 +24,21 @@ class AdministradorTest {
     }
 
     @Test
+    void testGerenciarEstoqueInvalido() {
+        assertThrows(EstoqueInvalidoException.class, () -> {
+            admin.gerenciarEstoque(produto, -1);
+        });
+    }
+
+    @Test
     void testGerenciarEstoqueValido() {
         admin.gerenciarEstoque(produto, 20);
         assertEquals(20, produto.getEstoque());
     }
 
     @Test
-    void testGerenciarEstoqueInvalido() {
-        assertThrows(EstoqueInvalidoException.class, () -> {
-            admin.gerenciarEstoque(produto, -1);
-        });
+    void testAutenticar() {
+        boolean resultado = admin.Autenticar();
+        assertTrue(resultado);
     }
 }
