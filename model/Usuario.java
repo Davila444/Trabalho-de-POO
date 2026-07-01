@@ -2,7 +2,9 @@ package model;
 
 import excessoes.LoginInvalidoException;
 import interfaces.IUsuario;
-
+/**
+ * A classe abstrata que representa o usuario em geral, pode ser cliente ou administrador.
+ */
 public abstract class Usuario implements IUsuario {
     private String id;
     private String nome;
@@ -15,7 +17,14 @@ public abstract class Usuario implements IUsuario {
         this.email = email;
         this.senha = senha;
     }
-
+    /**
+     * O método de autenticação de email e senha para verificação da identidade do usuário.
+     * 
+     * @param email email verifica se é compatível com o cadastrado.
+     * @param senha senha verifica se é compatível com a cadastrada.
+     * 
+     * @throws LoginInvalidoException diz ao usuario que o acesso foi negado devido a imcompatibilidade.
+     */
     public boolean Autenticar(String email, String senha) {
         if (!this.email.equals(email) || !this.senha.equals(senha)) {
             throw new LoginInvalidoException("Acesso negado: senha ou email incorretos.;");

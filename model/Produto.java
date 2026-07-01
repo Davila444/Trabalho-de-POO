@@ -1,6 +1,9 @@
 package model;
 import excessoes.QuantidadeInvalidaException;
 
+/**
+ * A classe abstrata que representa o produto em si, que será comprado pelo cliente.
+ */
 public abstract class Produto {
     private String id;
     private String nome;
@@ -13,13 +16,17 @@ public abstract class Produto {
         this.preco = preco;
         this.estoque = estoque;
     }
-
+    /**
+     *O método que remove a quantidade requerida pelo cliente do estoque e verifica se realmente é possivel a retirada de tal quantidade.
+     *@param quantidadeComprada quantidadeComprada para retirar essa quantidade do estoque, se tiver essa quantidade.
+     *@throws QuantidadeInvalidaException caso o a quantidade pedida seja menor que 1 ou maior do que há disponível no estoque.
+     */
     public void removerDoEstoque(int quantidadeComprada) {
         if (quantidadeComprada <= 0) {
             throw new QuantidadeInvalidaException("ERRO: A quantidade deve ser pelomenos 1");
         }
         
-        if (quantidadeComprada < this.estoque) {
+        if (quantidadeComprada > this.estoque) {
             throw new QuantidadeInvalidaException("ERRO: Nao ha estoque suficiente");
         }
                

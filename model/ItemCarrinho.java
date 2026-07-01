@@ -1,4 +1,7 @@
 package model;
+/**
+ * A classe que representa os itens escolhidos pelo cliente para carrinho.
+ */
 public class ItemCarrinho {
     private Produto produto;
     private int quantidade;

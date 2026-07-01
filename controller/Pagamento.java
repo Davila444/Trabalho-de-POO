@@ -3,7 +3,9 @@ public class Pagamento {
     private String id;
     private String metodo;
     private String status;
-
+    /**
+     * Classe responsável pelo gerenciamento de pagamento após a confirmação de pedido do cliente.
+     */
     public Pagamento(String id, String metodo, String status) {
         this.id = id;
         this.metodo = metodo;
@@ -44,7 +46,9 @@ public class Pagamento {
         this.status = status;
     }
 
-
+    /**
+     * Responsável pelo processamento final do pagamento para a confirmação da compra.
+     */
     public void processandoPagamento(){
         System.out.println("Aguarde o Processamento");
         System.out.println("Método: " +this.metodo);
