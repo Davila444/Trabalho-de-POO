@@ -9,7 +9,7 @@ import model.ItemCarrinho;
 /**
  * Classe responsável por guardar os itens que o usuário pretende comprar.
  * */
-public class Carrinho implements IFazerCalculo {
+public class Carrinho implements IFazerCalculo, ICarrinho {
 
     private List<ItemCarrinho> itens;
 
@@ -22,6 +22,7 @@ public class Carrinho implements IFazerCalculo {
          * 
          * @param item item a ser adicionado no carrinho.
          */
+        @Override
         public void adicionarItem(ItemCarrinho item) {
             this.itens.add(item);
     }
