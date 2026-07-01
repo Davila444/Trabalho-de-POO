@@ -1,14 +1,14 @@
 
 package model;
+
 import excessoes.EstoqueInvalidoException;
 import interfaces.IAdministrador;
-<<<<<<< HEAD
- 
-=======
+
+
 /**
      * Classe reponsável pelo gerenciamento da loja em relação à atualização de dados, cadastro de produtos e gerenciamento de estoque.
      */
->>>>>>> 8dc9269aa1ff34740ebe79e4ea799658ce57bb29
+
 public class Administrador extends Usuario implements IAdministrador{
 
     public Administrador(String id, String nome, String email, String senha) {

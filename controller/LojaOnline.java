@@ -48,6 +48,7 @@ public class LojaOnline implements ILojaOnline{
     /**
      * Faz a listagem de produtos que há na loja para a escolha do cliente.
      */
+    @Override
     public void listarProdutos(){
         //Tenho que lembrar de terminar a lista em adninistrador(por isso o erro).
         for (Produto p : produtos) {
@@ -81,5 +82,16 @@ public class LojaOnline implements ILojaOnline{
         }
         throw new ProdutoNaoEncotradoException("Erro: O produto não foi encontrado");
     }
+    //feito por IA
+    public List<Cliente> getClientes() {
+        return this.clientes;
+    }
 
+    public List<Produto> getProdutos() {
+        return this.produtos;
+    }
+
+    public List<Pedido> getPedidos() {
+        return this.pedidos;
+    }
 }
