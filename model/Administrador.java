@@ -2,6 +2,7 @@
 package model;
 
 import excessoes.EstoqueInvalidoException;
+import excessoes.LoginInvalidoException;
 import interfaces.IAdministrador;
 
 
@@ -10,9 +11,15 @@ import interfaces.IAdministrador;
      */
 
 public class Administrador extends Usuario implements IAdministrador{
+<<<<<<< HEAD
 
     public Administrador(String nome, String email, String senha, String endereco) {
         super(nome, email, senha, endereco);
+=======
+    
+    public Administrador(String id, String nome, String email, String senha) {
+        super(id, nome, email, senha);
+>>>>>>> dcc1d98bde7de4752b9e8b6238e0de67183eaf90
     }
 
     @Override
@@ -51,11 +58,11 @@ public class Administrador extends Usuario implements IAdministrador{
         }
     @Override
     public void cadastrar() {
-        System.out.println();
+        System.out.println("O administrador: " + getNome() + "foi cadastrado!" );
     }
     @Override
-    public void login() {
-
+    public boolean Autenticar() {
+        System.out.println("O administrador: " + getNome() + "esta autenticado" );
+        return true;
     }
-    
 }
