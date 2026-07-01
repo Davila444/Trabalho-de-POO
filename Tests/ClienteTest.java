@@ -20,4 +20,15 @@ class ClienteTest {
         assertNotNull(cliente.getCarrinho());
     }
 
+    @Test
+    void testHistoricoVazio() {
+        assertTrue(cliente.getHistoricoPedido().isEmpty());
+    }
+
+    @Test
+    void testAdicionarPedido() {
+        Pedido pedido = new Pedido(1, null, "Pendente");
+        cliente.adicionarPedido(pedido);
+        assertEquals(1, cliente.getHistoricoPedido().size());
+    }
 }
