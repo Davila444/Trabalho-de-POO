@@ -18,6 +18,21 @@ class AdministradorTest {
     private Produto produto;
 
     @BeforeEach
+    void setup() {
+        admin = new Administrador("1", "Admin", "admin@email.com", "123");
+        produto = new ProdutoTeste("1", "Notebook", 2500, 10);
+    }
 
-    
+    @Test
+    void testGerenciarEstoqueValido() {
+        admin.gerenciarEstoque(produto, 20);
+        assertEquals(20, produto.getEstoque());
+    }
+
+    @Test
+    void testGerenciarEstoqueInvalido() {
+        assertThrows(EstoqueInvalidoException.class, () -> {
+            admin.gerenciarEstoque(produto, -1);
+        });
+    }
 }
