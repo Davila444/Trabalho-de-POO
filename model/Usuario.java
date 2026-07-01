@@ -6,17 +6,19 @@ import interfaces.IUsuario;
  * A classe abstrata que representa o usuario em geral, pode ser cliente ou administrador.
  */
 public abstract class Usuario implements IUsuario {
-    private String id;
     private String nome;
     private String email;
+    private String endereco;
     private String senha;
 
-    public Usuario(String id, String nome, String email, String senha) {
-        this.id = id;
+    public Usuario(String nome, String email, String senha, String endereco) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
+        this.endereco = endereco;
     }
+    
+
     /**
      * O método de autenticação de email e senha para verificação da identidade do usuário.
      * 
@@ -25,12 +27,11 @@ public abstract class Usuario implements IUsuario {
      * 
      * @throws LoginInvalidoException diz ao usuario que o acesso foi negado devido a imcompatibilidade.
      */
-    public boolean Autenticar(String email, String senha) {
-        if (!this.email.equals(email) || !this.senha.equals(senha)) {
-            throw new LoginInvalidoException("Acesso negado: senha ou email incorretos.;");
-        } 
-        System.out.println("Login efetuado com sucesso");
-        return true;
+    public boolean Autenticar(String emailDigitado, String senhaDigitada) {
+        if (this.email.equals(emailDigitado) && this.senha.equals(senhaDigitada)) {
+            return true;
+        }
+        throw new LoginInvalidoException("Credenciais inválidas ou usuário não encontrado.");
     }
     
     @Override
@@ -43,11 +44,11 @@ public abstract class Usuario implements IUsuario {
         System.out.println("Iniciando processo de login no sistema...");
     }
 
-    public String getId() {
-        return id;
+    public String getEndereco() {
+        return endereco;
     }
-    public void setId(String id) {
-        this.id = id;
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
 
     public String getNome() {

@@ -15,8 +15,8 @@ public class Cliente extends Usuario implements ICliente{
     private List<Pedido> historicoPedidos;
     private String endereco;
 
-    public Cliente(String id, String nome, String email, String senha) {
-        super(id, nome, email, senha);
+    public Cliente(String nome, String email, String senha, String endereco) {
+        super(nome, email, senha, endereco);
         this.carrinho = new Carrinho();
         this.historicoPedidos = new ArrayList<Pedido>();
     }
