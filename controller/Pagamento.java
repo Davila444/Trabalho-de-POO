@@ -1,5 +1,8 @@
 package controller;
-public class Pagamento {
+
+import interfaces.IPagamento;
+
+public class Pagamento implements IPagamento {
     private String id;
     private String metodo;
     private String status;
@@ -49,7 +52,8 @@ public class Pagamento {
     /**
      * Responsável pelo processamento final do pagamento para a confirmação da compra.
      */
-    public void processandoPagamento(){
+    @Override
+    public void processarPagamento(){
         System.out.println("Aguarde o Processamento");
         System.out.println("Método: " +this.metodo);
         this.status = "Aprovado";

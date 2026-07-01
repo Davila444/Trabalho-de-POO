@@ -2,6 +2,7 @@ package controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import interfaces.ICarrinho;
 
 import interfaces.IFazerCalculo;
 import model.ItemCarrinho;
@@ -32,6 +33,7 @@ public class Carrinho implements IFazerCalculo, ICarrinho {
          * 
          * @param item item a ser removido no carrinho.
          */
+        @Override
         public void removerItem(ItemCarrinho item) {
             this.itens.remove(item);
     }
