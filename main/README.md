@@ -55,86 +55,81 @@
 ```mermaid
 
 classDiagram
-
-    class LojaOnline {
-        -String nome
-        +cadastrar cliente()
+%% ==========================================
+    %%                 INTERFACES
+    %% ==========================================
+    class ILojaOnline {
+        <<interface>>
+        +cadastrarCliente(Scanner scanner)
         +listarProdutos()
-        +criarPedido()
+        +buscarProduto(String nome) Produto
+        +criarPedido(Cliente cliente)
     }
 
-    class Usuario{
-        <<abstract>>
-        -int id 
-        -String nome
-        -String email
-        -string senha
+    class IUsuario {
+        <<interface>>
         +cadastrar()
         +login()
-        +atualizarDados()
     }
 
-    class Cliente{
-        -String endereco
-        +atualizarDados()
-        +cadastrar()
+    class IAdministrador {
+        <<interface>>
+        +cadastrarProduto(Produto produto)
+        +gerenciarEstoque(Produto produto, int novaQuantidade)
     }
 
-    class Administrador{
-        +cadastrarProduto()
-        +gerenciarEstoque()
+    class ICliente {
+        <<interface>>
+        +adicionarPedido(Pedido pedido)
+        +exibirHistorico()
     }
 
-    class Carrinho {
-        -int id
-        +adicionaritem()
-        +removerItem()
-        +calcularTotal()
+    class IFazerCalculo {
+        <<interface>>
+        +calcularTotal() double
     }
 
-    class ItemCarrinho{
-        -int quantidade
+    class IPagamento {
+        <<interface>>
+        +processarPagamento()
     }
 
-    class Pedido{
-        -int id
-        -Date data
-        -String status 
-        +gerarPedido()
-        +calcularTotal()
+    class IProduto {
+        <<interface>>
+        +removerDoEstoque(int quantidadeComprada)
+        +atualizarEstoque(int novaQuantidade)
     }
 
-    class Itempedido{
-        -int quantidade
-        -string produto
-        -int precoUnitario
+    class ICarrinho {
+        <<interface>>
+        +adicionarItem(ItemCarrinho item)
+        +removerItem(ItemCarrinho item)
     }
 
-    class Pagamento{
-        -int id
-        -String metodo
-        -String status
-        +processandoPagamento()
-    }
-
-    class Produto{
+    %% ==========================================
+    %%             CLASSES ABSTRATAS
+    %% ==========================================
+    class Usuario {
         <<abstract>>
-        -int id
-        -string nome 
-        -int preco
+        -String id 
+        -String nome
+        -String email
+        -String senha
+        +Autenticar(String email, String senha) boolean
+        +cadastrar()
+        +login()
+    }
+
+    class Produto {
+        <<abstract>>
+        -String id
+        -String nome 
+        -double preco
         -int estoque
-        +atualizarEstoque()
+        +removerDoEstoque(int quantidadeComprada)
+        +atualizarEstoque(int novaQuantidade)
     }
-
-    class iPagamento {
-        <<interface>>
-        +processandoPagamento()
-    }
-
-    class iFazerCalculo {
-        <<interface>>
-        +calcularTotal()
-    }
+    
 
     %%implementações
     iFazerCalculo <|.. Carrinho:implements
