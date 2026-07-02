@@ -50,6 +50,23 @@
 ## Tratamento de excessões
 ### Usaremos o tratamento de excessões caso o cliente tente comprar algo com estoque 0, tente logar com email e/ou senha errados, tente colocar uma quntidade inválida no carrinho (como um número negativo ou um número maior do que o disponível no estoque).
 
+## Como rodar o projeto
+
+### Compilar
+```bash
+javac -cp lib/junit-platform-console-standalone-6.1.0.jar -d bin (Get-ChildItem -Recurse -Filter *.java | Select-Object -ExpandProperty FullName)
+```
+
+### Executar
+```bash
+java -cp bin main.Main
+```
+
+### Rodar os testes
+```bash
+java -jar lib/junit-platform-console-standalone-6.1.0.jar execute -cp bin --scan-classpath
+```
+
 ## Código do diagrama feito no mermaid:
 
 ```mermaid
