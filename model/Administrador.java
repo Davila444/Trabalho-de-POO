@@ -50,10 +50,19 @@ public class Administrador extends Usuario implements IAdministrador{
         System.out.println("O estoque do produto '" + produto.getNome() + "' foi atualizado para: " + novaQuantidade + " unidades.");
         
         }
+    /**
+    * Realiza o cadastro do administrador no sistema.
+    */
     @Override
     public void cadastrar() {
         System.out.println("O administrador: " + getNome() + "foi cadastrado!" );
     }
+
+    /**
+     * Autentica o administrador no sistema.
+     * 
+     * @return true se o administrador está autenticado
+     */
     @Override
     public boolean Autenticar() {
         System.out.println("O administrador: " + getNome() + "esta autenticado" );

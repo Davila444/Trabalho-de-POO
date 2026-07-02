@@ -22,8 +22,8 @@ public abstract class Usuario implements IUsuario {
     /**
      * O método de autenticação de email e senha para verificação da identidade do usuário.
      * 
-     * @param email email verifica se é compatível com o cadastrado.
-     * @param senha senha verifica se é compatível com a cadastrada.
+     * @param emailDigitado email verifica se é compatível com o cadastrado.
+     * @param senhaDigitada senha verifica se é compatível com a cadastrada.
      * 
      * @throws LoginInvalidoException diz ao usuario que o acesso foi negado devido a imcompatibilidade.
      */
