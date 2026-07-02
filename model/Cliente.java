@@ -64,15 +64,23 @@ public class Cliente extends Usuario implements ICliente{
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     } 
-
+    /**
+     * Atualiza o endereço do cliente no sistema.
+     */
     @Override
     public void atualizarDados() {
         System.out.println("Atualiazando o endereço do Cliente para: " + this.endereco);
     }
+    /**
+     * Realiza o cadastro do cliente no sistema.
+     */
     @Override
     public void cadastrar() {
         System.out.println("Cliente " + super.getNome() + " cadastrado.");
     }
+    /**
+     * Realiza o login do cliente no sistema.
+     */
     @Override
     public void login() {
         System.out.println("Cliente " + super.getNome() + "acessou o sistema de compras");
