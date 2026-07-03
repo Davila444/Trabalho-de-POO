@@ -13,6 +13,9 @@ import model.ItemCarrinho;
 import model.ItemPedido;
 import model.Produto; 
 
+/**
+ * Testes unitários da classe Pedido.
+ */
 class PedidoTest {
     
     class ProdutoTeste extends Produto {
@@ -29,7 +32,7 @@ class PedidoTest {
         produto = new ProdutoTeste("1", "notebook", 2500, 10);
         pedido = new Pedido(1, LocalDate.of(2026, 6, 19), "Aguardando");
     }
-
+    /** Verifica se o total da compra feita pelo clinte está correto, nesse caso, com pedido. */
     @Test
     void testCalcularTotal(){
         List<ItemCarrinho> itens = new ArrayList<>();

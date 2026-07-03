@@ -2,13 +2,14 @@ package controller;
 
 import interfaces.IPagamento;
 
+ /**
+  * Classe responsável pelo gerenciamento de pagamento após a confirmação de pedido do cliente.
+  */
 public class Pagamento implements IPagamento {
     private String id;
     private String metodo;
     private String status;
-    /**
-     * Classe responsável pelo gerenciamento de pagamento após a confirmação de pedido do cliente.
-     */
+
     public Pagamento(String id, String metodo, String status) {
         this.id = id;
         this.metodo = metodo;

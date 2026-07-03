@@ -5,7 +5,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 import controller.Pagamento;
 
-
+/**
+ * Testes unitários da classe Pagamento.
+ */
  class PagamentoTest {
     private Pagamento pagamento;
 
@@ -13,7 +15,7 @@ import controller.Pagamento;
     void setup(){
         pagamento = new Pagamento("1", "pix", "Pendente");
     }
-
+    /** Verifica se um pagamento está sendo processado corretamente, mudando o seu status de pendente para aprovado. */
     @Test
     void testprocessarPagamento(){
         pagamento.processarPagamento();
